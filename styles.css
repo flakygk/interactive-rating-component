@@ -1,0 +1,211 @@
+:root {
+  --card-rating-bg: radial-gradient(
+    circle at top, #171E28, #202b3a
+  );
+
+  --circle-size: 60px;
+
+  --clr-primary: #fff;
+  --clr-secondary: #7C8898;
+  --clr-accent: #FC7613;
+  --clr-light: #ddd;
+  --clr-dark: #333;
+
+  --clr-darkness: #171E28;
+  --clr-darkblue: #202b3a;
+
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --fw-extra-bold: 800;
+  --fw-black: 900;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: #141519;
+  font-family: system-ui;
+  color: var(--clr-secondary);
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--clr-primary);
+}
+
+.card-rating {
+  --br-radius: 1.5rem;
+  --padding: 2.5rem;
+  position: relative;
+  width: 480px;
+  padding: var(--padding);
+  background-image: var(--card-rating-bg);
+  border-radius: var(--br-radius);
+  overflow: hidden;
+  transition: box-shadow 200ms ease;
+}
+.card-rating:hover,
+.card-rating:focus,
+.card-rating:focus-within {
+  box-shadow: 0 0 .25rem 0 #fff;
+}
+
+.card-rating > * + *:not(
+  .card-rating__subtitle,
+  .thank-you-state
+) {
+  margin-top: var(--padding);
+}
+
+.card-rating__star {
+  width: var(--circle-size);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: #262F38;
+}
+
+.card-rating__title {
+  font-size: 2rem;
+}
+
+.card-rating__subtitle {
+  margin-top: 1.125rem;
+}
+
+.card-rating__rating-board {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-rating__circle {
+  width: var(--circle-size);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background-color: #262F38;
+  font-size: 1.125rem;
+  font-weight: 500;
+  user-select: none;
+  cursor:pointer;
+  transition: all 100ms ease;
+}
+
+.card-rating__circle--selected {
+  background-color: firebrick;
+}
+
+.card-rating__circle:hover,
+.card-rating__circle:focus {
+  background-color: var(--clr-accent);
+  outline: 0;
+  color: var(--clr-light);
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+.card-rating__submit-btn {
+  width: 100%;
+  padding: .75em 1.5em;
+  border: 0;
+  /* ? It's bug or not!? I don't know! */
+  border-radius: 999px;
+  background-color: var(--clr-accent);
+  color: var(--clr-light);
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor:pointer;
+  user-select: none;
+  outline-offset: -3px;
+  transition:
+    color 120ms ease,
+    background-color 120ms ease,
+    outline 120ms linear,
+    outline-offset 120ms ease-out
+  ;
+}
+
+.card-rating__submit-btn:hover,
+.card-rating__submit-btn:focus {
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  outline: 3px solid var(--clr-light);
+  outline-offset: 3px;
+}
+
+.thank-you-state {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--br-radius);
+  background-image: var(--card-rating-bg);
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* ? For all elements inside */
+  text-align: center;
+  animation: fade-in 300ms linear forwards;
+}
+
+@keyframes fade-in {
+  from {
+    /* opacity: 0; */
+    transform: translateY(-100%);
+  } to {
+    /* opacity: 1; */
+    transform: translateY(0%);
+  }
+}
+
+.thank-you-state > * + * {
+  margin-top: auto;
+}
+
+/* ! Perhaps it is bad one */
+.thank-you-state_img img {
+  height: 140px;
+  user-select: none;
+}
+
+.thank-you-state__results {
+  padding: .5em 1em;
+  border-radius: 999px;
+  background-color: var(--clr-darkness);
+  color: var(--clr-accent);
+}
+
+.thank-you-state__title {
+  font-size: 2rem;
+}
+
+.thank-you-state__subtitle {
+  font-size: 1.125rem;
+}
+
+.display-none {
+  display: none;
+}

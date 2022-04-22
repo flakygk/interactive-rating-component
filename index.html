@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="./images/favicon-32x32.png"
+  />
+  <title>Interactive rating component | Frontend Mentor</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <div class="card-rating">
+
+    <div class="card-rating__star">
+      <img src="./images/icon-star.svg" alt="" />
+    </div>
+    <h2 class="card-rating__title">How did we do?</h2>
+    <p class="card-rating__subtitle">
+      Please let us know how we did with your support request.
+      All feedback is appreciates to help us improve our offering!
+    </p>
+    <div class="card-rating__rating-board">
+      <div class="card-rating__circle" tabindex="0">1</div>
+      <div class="card-rating__circle" tabindex="0">2</div>
+      <div class="card-rating__circle" tabindex="0">3</div>
+      <div class="card-rating__circle" tabindex="0">4</div>
+      <div class="card-rating__circle" tabindex="0">5</div>
+    </div>
+    <button id="card-rating-submit" class="card-rating__submit-btn">Submit</button>
+
+    <div class="thank-you-state display-none">
+      <div class="thank-you-state_img">
+        <img src="./images/illustration-thank-you.svg" alt="" />
+      </div>
+      <div class="thank-you-state__results">
+        You selected <span id="raring-results">4</span> out of 5
+      </div>
+      <h2 class="thank-you-state__title">Thank you!</h2>
+      <p class="thank-you-state__subtitle">
+        We appreciate you tacking the the time to give a rating.
+        If you ever need more support, don't hesitate to get in touch!
+      </p>
+    </div>
+
+  </div>
+
+  <script src="./app.js"></script>
+
+</body>
+</html>
